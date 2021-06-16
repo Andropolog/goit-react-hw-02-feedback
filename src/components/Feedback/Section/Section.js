@@ -11,10 +11,6 @@ const Section = ({ title, children }) => {
   );
 };
 
-// Section.defaultProps = {
-//   children: null,
-// };
-
 Section.propTypes = {
   title: PropTypes.string.isRequired,
   children: PropTypes.arrayOf(PropTypes.element),
