@@ -37,26 +37,29 @@ export default class Feedback extends Component {
     const options = Object.keys(this.state);
 
     return (
-      <Section title="Please leave feedback">
+     <> 
+     <Section title="Please leave feedback">
         <FeedbackOptions
           options={options}
           onLeaveFeedback={this.handleFeedback}
         />
-
-        <h3 className="statistics">Statistics</h3>
-
-        {this.countTotalFeedback() ? (
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbackPercentage()}
-          />
-        ) : (
-          <Notification message="No feedback given" />
-        )}
       </Section>
+
+      <Section title="Statistics">
+      {this.countTotalFeedback() ? (
+                <Statistics
+                  good={good}
+                  neutral={neutral}
+                  bad={bad}
+                  total={this.countTotalFeedback()}
+                  positivePercentage={this.countPositiveFeedbackPercentage()}
+                />
+              ) : (
+                <Notification message="No feedback given" />
+              )}
+      </Section>
+      </>
+
     );
   }
 }
